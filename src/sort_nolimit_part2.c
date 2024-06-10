@@ -6,7 +6,7 @@
 /*   By: irongab <irongab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:47:19 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/10 22:07:16 by irongab          ###   ########.fr       */
+/*   Updated: 2024/06/10 22:54:56 by irongab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ int	ft_position_b(t_list **stack_b, int median)
 		i = temp->value;
 		return (0);
 	}
-	if (temp->value <= (median - 11) && temp->value != i)
+	if (temp->value <= (median - 26) && temp->value != i)
 		return (2);
-	if (temp->value > (median - 11))
+	if (temp->value > (median - 26))
 	{
 		i = temp->value;
 		if (temp->next != NULL && (*stack_b)->value < (*stack_b)->next->value)

@@ -6,7 +6,7 @@
 /*   By: irongab <irongab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:46:17 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/10 22:05:54 by irongab          ###   ########.fr       */
+/*   Updated: 2024/06/10 22:50:48 by irongab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ void	sort_with_nolimit(t_list **stack_a, t_list **stack_b)
 	size = ft_lstsize(stack_a);
 	{
 		{
-			divider = 5;
-			while (divider != 1)
+			divider = 10;
+			while (--divider != 1)
 			{
 				size = ft_lstsize(stack_a);
 				median = find_median(stack_a, size, divider);
 				push_stack_b(stack_a, stack_b, size, median);
 				size = ft_lstsize(stack_a);
-				divider--;
 			}
 			size = ft_lstsize(stack_a);
 			median = find_median(stack_a, size, 1);
