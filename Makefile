@@ -1,8 +1,13 @@
 NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
-SRC = algo_sort.c check_argv.c ft_lst.c \
-main.c push_swap.c push_swap_utile.c \
+SRC = src/main.c src/push.c src/rotate.c\
+src/rr_rrr_ss.c src/sort_for_2.c src/sort_for_3.c\
+src/sort_for_5.c src/swap.c\
+src/sort_nolimit_part1.c src/sort_nolimit_part2.c\
+utile/check_argv.c utile/ft_lst.c\
+utile/push_swap_utile_1.c utile/push_swap_utile_2.c\
+utile/push_swap_utile.c
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a

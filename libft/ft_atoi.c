@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gacavali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:59:25 by gacavali          #+#    #+#             */
-/*   Updated: 2024/05/01 15:56:05 by gacavali         ###   ########.fr       */
+/*   Updated: 2024/06/10 13:20:47 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 long long	ft_atoi(char *str)
 {
 	long long	i;
-	int	count;
+	int			count;
 	long long	sign;
 	long long	number;
 
