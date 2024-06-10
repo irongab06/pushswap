@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: irongab <irongab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:04:33 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/10 12:14:39 by gacavali         ###   ########.fr       */
+/*   Updated: 2024/06/10 21:44:39 by irongab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int		ft_lstsize(t_list **stack_a);
 int		last_sort_a_for_b(t_list **stack_a, int min_a, int third_value);
 int		ft_position(t_list **stack_a, int min_a, int median);
 int		check_median(t_list **stack_a, int min_a, int median);
-int		ft_position_b(t_list **stack_b, int max_b, int median);
+int		ft_position_b(t_list **stack_b, int median);
 int		ft_last_value(t_list **stack_a);
 int		find_third_hight_value(t_list **stack_a);
 
