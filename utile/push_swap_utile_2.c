@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utile_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irongab <irongab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:24:56 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/10 22:22:39 by irongab          ###   ########.fr       */
+/*   Updated: 2024/06/13 15:20:29 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,14 @@ int	check_median(t_list **stack_a, int min_a, int median)
 	return (0);
 }
 
-int	find_third_hight_value(t_list **stack_a)
+int	find_third_hight_value(t_list **stack_a, int third)
 {
 	int		first;
 	int		second;
-	int		third;
 	t_list	*current;
 
 	first = INT_MIN;
 	second = INT_MIN;
-	third = INT_MIN;
 	current = *stack_a;
 	while (current != NULL)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_nolimit_part1.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irongab <irongab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:46:17 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/10 22:50:48 by irongab          ###   ########.fr       */
+/*   Updated: 2024/06/13 14:49:29 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sort_with_nolimit(t_list **stack_a, t_list **stack_b)
 	size = ft_lstsize(stack_a);
 	{
 		{
-			divider = 10;
+			divider = 11;
 			while (--divider != 1)
 			{
 				size = ft_lstsize(stack_a);
@@ -32,7 +32,7 @@ void	sort_with_nolimit(t_list **stack_a, t_list **stack_b)
 			}
 			size = ft_lstsize(stack_a);
 			median = find_median(stack_a, size, 1);
-			third_value = find_third_hight_value(stack_a);
+			third_value = find_third_hight_value(stack_a, INT_MIN);
 			push_stack_a(stack_a, stack_b, median, third_value);
 			if (ft_lstsize(stack_a) == 3)
 				sort_for_3(stack_a);
@@ -44,27 +44,28 @@ void	sort_with_nolimit(t_list **stack_a, t_list **stack_b)
 void	push_last_sort(t_list **stack_a, t_list **stack_b)
 {
 	int	max_b;
+	int	size;
 
 	while ((*stack_b) != NULL)
 	{
+		size = ft_lstsize(stack_b);
 		max_b = find_max(stack_b);
-		last_sort_b_for_a(stack_a, stack_b, max_b);
+		last_sort_b_for_a(stack_a, stack_b, max_b, size);
 	}
 	while (stack_in_order(*stack_a) != 0)
 		rra(stack_a, 0);
 }
 
-void	last_sort_b_for_a(t_list **stack_a, t_list **stack_b, int max_b)
+void	last_sort_b_for_a(t_list **stack_a, t_list **stack_b,
+		int max_b, int size)
 {
 	t_list	*temp;
 	int		start_lst;
 	int		end_lst;
-	int		size;
 
 	start_lst = 0;
 	end_lst = 0;
 	temp = *stack_b;
-	size = ft_lstsize(stack_b);
 	while (start_lst < size)
 	{
 		if (temp->value == max_b)
@@ -82,12 +83,7 @@ void	last_sort_b_for_a(t_list **stack_a, t_list **stack_b, int max_b)
 		temp = temp->prev;
 		end_lst++;
 	}
-	if (start_lst == 0)
-		pa(stack_a, stack_b);
-	else if (start_lst <= end_lst || start_lst - 1 == end_lst)
-		rb(stack_b, 0);
-	else if (start_lst > end_lst)
-		rrb(stack_b, 0);
+	ft_print_command(stack_a, stack_b, start_lst, end_lst);
 }
 
 void	push_stack_a(t_list **stack_a, t_list **stack_b, int median,
@@ -118,6 +114,7 @@ void	push_stack_a(t_list **stack_a, t_list **stack_b, int median,
 }
 
 int	last_sort_a_for_b(t_list **stack_a, int min_a, int third_value)
+
 {
 	t_list	*temp;
 	int		start_lst;

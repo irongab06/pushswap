@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_nolimit_part2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irongab <irongab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:47:19 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/10 22:54:56 by irongab          ###   ########.fr       */
+/*   Updated: 2024/06/13 14:11:00 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ int	ft_position_b(t_list **stack_b, int median)
 		i = temp->value;
 		return (0);
 	}
-	if (temp->value <= (median - 26) && temp->value != i)
+	if (temp->value <= (median - 23) && temp->value != i)
 		return (2);
-	if (temp->value > (median - 26))
+	if (temp->value > (median - 23))
 	{
 		i = temp->value;
 		if (temp->next != NULL && (*stack_b)->value < (*stack_b)->next->value)
@@ -94,23 +94,25 @@ void	first_dispatch_order_for_b(t_list **stack_a, t_list **stack_b,
 		rr(stack_a, stack_b);
 		return ;
 	}
-	if (order_a == 3 && order_b == 3)
-	{
-		rrr(stack_a, stack_b);
-		return ;
-	}
 	if (order_a == 2)
 		ra(stack_a, 0);
 	if (order_b == 2)
 		rb(stack_b, 0);
-	if (order_b == 3)
-		rrb(stack_b, 0);
-	if (order_a == 3)
-		rra(stack_a, 0);
 	if (order_b == 1)
 		sb(stack_b, 0);
 	if (order_a == 1)
 		sa(stack_a, 0);
 	if (order_a == 4)
 		pb(stack_a, stack_b);
+}
+
+void	ft_print_command(t_list **stack_a, t_list **stack_b,
+		int start_lst, int end_lst)
+{
+	if (start_lst == 0)
+		pa(stack_a, stack_b);
+	else if (start_lst <= end_lst || start_lst - 1 == end_lst)
+		rb(stack_b, 0);
+	else if (start_lst > end_lst)
+		rrb(stack_b, 0);
 }

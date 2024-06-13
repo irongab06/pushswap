@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irongab <irongab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:04:33 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/10 21:44:39 by irongab          ###   ########.fr       */
+/*   Updated: 2024/06/13 14:53:57 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	sort_with_nolimit(t_list **stack_a, t_list **stack_b);
 void	push_stack_b(t_list **stack_a, t_list **stack_b, int size, int median);
 void	push_stack_a(t_list **stack_a, t_list **stack_b, int median,
 			int third_value);
-void	last_sort_b_for_a(t_list **stack_a, t_list **stack_b, int max_b);
+void	last_sort_b_for_a(t_list **stack_a, t_list **stack_b, int max_b,
+			int size);
 void	push_last_sort(t_list **stack_a, t_list **stack_b);
 void	dispatch_order_for_b(t_list **stack_a, t_list **stack_b, int order_a,
 			int order_b);
@@ -60,6 +61,8 @@ void	rrb(t_list **stack_b, int rrr);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
+void	ft_print_command(t_list **stack_a, t_list **stack_b, int start_lst,
+			int end_lst);
 
 //--------------------------------------------------------------
 
@@ -80,7 +83,7 @@ int		ft_position(t_list **stack_a, int min_a, int median);
 int		check_median(t_list **stack_a, int min_a, int median);
 int		ft_position_b(t_list **stack_b, int median);
 int		ft_last_value(t_list **stack_a);
-int		find_third_hight_value(t_list **stack_a);
+int		find_third_hight_value(t_list **stack_a, int third);
 
 //--------------------------------------------------------------
 

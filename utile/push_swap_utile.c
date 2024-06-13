@@ -6,7 +6,7 @@
 /*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:55:09 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/10 14:25:57 by gacavali         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:13:58 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_free(char **str)
 		free(str[i]);
 		i++;
 	}
+	free(str[i]);
+	free(str);
 }
 
 int	ft_error_lst(t_list **stack_a)

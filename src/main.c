@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irongab <irongab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:13:09 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/10 22:57:58 by irongab          ###   ########.fr       */
+/*   Updated: 2024/06/13 15:10:19 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
+	t_list	*temp;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -28,6 +29,19 @@ int	main(int argc, char **argv)
 		{
 			algo_dispatcher(&stack_a, &stack_b);
 		}
-	}
+		while (stack_a)
+		{
+			temp = stack_a->next;
+			free(stack_a);
+			stack_a = temp;
+		}
+		while (stack_b)
+		{
+			temp = stack_b->next;
+			free(stack_b);
+			stack_b = temp;
+		}
+	}	
 	return (0);
 }
+
