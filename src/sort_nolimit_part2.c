@@ -6,29 +6,29 @@
 /*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:47:19 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/13 14:11:00 by gacavali         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:07:54 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push_stack_b(t_list **stack_a, t_list **stack_b, int size, int median)
+void	push_stack_b(t_list **stack_a, t_list **stack_b, int med_divider,
+		int median)
 {
 	int	min_a;
 	int	order_a;
 	int	order_b;
 
-	(void)size;
 	min_a = find_min(stack_a);
 	while (check_median(stack_a, min_a, median) != 0)
 	{
 		if (ft_lstsize(stack_a) == 3)
 			return ;
 		order_a = ft_position(stack_a, min_a, median);
-		order_b = ft_position_b(stack_b, median);
+		order_b = ft_position_b(stack_b, median, med_divider);
 		first_dispatch_order_for_b(stack_a, stack_b, order_a, order_b);
 		if (check_median(stack_a, min_a, median) == 0)
-			order_b = ft_position_b(stack_b, median);
+			order_b = ft_position_b(stack_b, median, med_divider);
 	}
 }
 
@@ -55,7 +55,7 @@ int	ft_position(t_list **stack_a, int min_a, int median)
 	return (0);
 }
 
-int	ft_position_b(t_list **stack_b, int median)
+int	ft_position_b(t_list **stack_b, int median, int med_divider)
 {
 	t_list		*temp;
 	static int	i;
@@ -68,9 +68,9 @@ int	ft_position_b(t_list **stack_b, int median)
 		i = temp->value;
 		return (0);
 	}
-	if (temp->value <= (median - 23) && temp->value != i)
+	if (temp->value <= (median - med_divider) && temp->value != i)
 		return (2);
-	if (temp->value > (median - 23))
+	if (temp->value > (median - med_divider))
 	{
 		i = temp->value;
 		if (temp->next != NULL && (*stack_b)->value < (*stack_b)->next->value)

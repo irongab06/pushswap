@@ -6,7 +6,7 @@
 /*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:59:23 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/10 14:24:41 by gacavali         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:15:30 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,25 @@ int	find_max(t_list **stack_a)
 		temp = temp->next;
 	}
 	return (value_max);
+}
+
+int	ft_divider(t_list **stack_a)
+{
+	int	size;
+
+	size = ft_lstsize(stack_a);
+	if (size <= 100)
+		return (5);
+	if (size > 100)
+		return (10);
+	return (0);
+}
+
+int	ft_med_divider(int divider)
+{
+	if (divider == 5)
+		return (11);
+	if (divider == 10)
+		return (26);
+	return (0);
 }

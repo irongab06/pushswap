@@ -7,7 +7,7 @@ src/sort_for_5.c src/swap.c\
 src/sort_nolimit_part1.c src/sort_nolimit_part2.c\
 utile/check_argv.c utile/ft_lst.c\
 utile/push_swap_utile_1.c utile/push_swap_utile_2.c\
-utile/push_swap_utile.c
+utile/push_swap_utile.c utile/push_swap_utile_3.c\
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a

@@ -6,11 +6,26 @@
 /*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:24:56 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/13 15:20:29 by gacavali         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:07:08 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	ft_stock_value(int size, int divider, int i)
+{
+	if ((size % divider) == 1)
+	{
+		if (i == (size / divider))
+			return (0);
+	}
+	else
+	{
+		if (i == (size / divider) - 1)
+			return (0);
+	}
+	return (1);
+}
 
 int	stack_ascending(t_list	**stack_a)
 {
@@ -35,6 +50,7 @@ int	find_median(t_list **stack_a, int size, int divider)
 	t_list	*temp;
 	t_list	*browse;
 
+	size = ft_lstsize(stack_a);
 	temp = *stack_a;
 	while (temp != NULL)
 	{
@@ -47,16 +63,8 @@ int	find_median(t_list **stack_a, int size, int divider)
 				i++;
 			browse = browse->next;
 		}
-		if ((size % divider) == 1)
-		{
-			if (i == (size / divider))
-				return (stock_value);
-		}
-		else
-		{
-			if (i == (size / divider) - 1)
-				return (stock_value);
-		}
+		if (ft_stock_value(size, divider, i) == 0)
+			return (stock_value);
 		temp = temp->next;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:04:33 by gacavali          #+#    #+#             */
-/*   Updated: 2024/06/13 14:53:57 by gacavali         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:22:12 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ void	sort_for_2(t_list **stack_a);
 void	sort_for_3(t_list **stack_a);
 void	sort_for_5(t_list **stack_a, t_list **stack_b);
 void	sort_with_nolimit(t_list **stack_a, t_list **stack_b);
-void	push_stack_b(t_list **stack_a, t_list **stack_b, int size, int median);
+void	push_stack_b(t_list **stack_a, t_list **stack_b, int med_divider,
+			int median);
 void	push_stack_a(t_list **stack_a, t_list **stack_b, int median,
-			int third_value);
+			int med_divider);
 void	last_sort_b_for_a(t_list **stack_a, t_list **stack_b, int max_b,
 			int size);
 void	push_last_sort(t_list **stack_a, t_list **stack_b);
@@ -63,6 +64,7 @@ void	pb(t_list **stack_a, t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 void	ft_print_command(t_list **stack_a, t_list **stack_b, int start_lst,
 			int end_lst);
+void	ft_free_stack(t_list **stack_a);
 
 //--------------------------------------------------------------
 
@@ -81,9 +83,11 @@ int		ft_lstsize(t_list **stack_a);
 int		last_sort_a_for_b(t_list **stack_a, int min_a, int third_value);
 int		ft_position(t_list **stack_a, int min_a, int median);
 int		check_median(t_list **stack_a, int min_a, int median);
-int		ft_position_b(t_list **stack_b, int median);
+int		ft_position_b(t_list **stack_b, int median, int med_divider);
 int		ft_last_value(t_list **stack_a);
 int		find_third_hight_value(t_list **stack_a, int third);
+int		ft_divider(t_list **stack_a);
+int		ft_med_divider(int divider);
 
 //--------------------------------------------------------------
 
