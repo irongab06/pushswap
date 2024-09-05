@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 SRC = src/main.c src/push.c src/rotate.c\
 src/rr_rrr_ss.c src/sort_for_2.c src/sort_for_3.c\
 src/sort_for_5.c src/swap.c\

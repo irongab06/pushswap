@@ -20,22 +20,18 @@ void	sort_with_nolimit(t_list **stack_a, t_list **stack_b)
 	int		med_divider;
 
 	size = 0;
+	divider = ft_divider(stack_a);
+	med_divider = ft_med_divider(divider);
+	while (--divider != 1)
 	{
-		{
-			divider = ft_divider(stack_a);
-			med_divider = ft_med_divider(divider);
-			while (--divider != 1)
-			{
-				median = find_median(stack_a, size, divider);
-				push_stack_b(stack_a, stack_b, med_divider, median);
-			}
-			median = find_median(stack_a, size, 1);
-			push_stack_a(stack_a, stack_b, median, med_divider);
-			if (ft_lstsize(stack_a) == 3)
-				sort_for_3(stack_a);
-			push_last_sort(stack_a, stack_b);
-		}
+		median = find_median(stack_a, size, divider);
+		push_stack_b(stack_a, stack_b, med_divider, median);
 	}
+	median = find_median(stack_a, size, 1);
+	push_stack_a(stack_a, stack_b, median, med_divider);
+	if (ft_lstsize(stack_a) == 3)
+		sort_for_3(stack_a);
+	push_last_sort(stack_a, stack_b);
 }
 
 void	push_last_sort(t_list **stack_a, t_list **stack_b)

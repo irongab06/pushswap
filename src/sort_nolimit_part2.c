@@ -22,7 +22,7 @@ void	push_stack_b(t_list **stack_a, t_list **stack_b, int med_divider,
 	min_a = find_min(stack_a);
 	while (check_median(stack_a, min_a, median) != 0)
 	{
-		if (ft_lstsize(stack_a) == 3)
+		if (ft_lstsize(stack_a) == 4)
 			return ;
 		order_a = ft_position(stack_a, min_a, median);
 		order_b = ft_position_b(stack_b, median, med_divider);
